@@ -8,20 +8,20 @@ public class Companion : Coin
 
     private float health;
     private float damage;
-    private bool friendly;
+    private bool isAlive;
 
     public Companion()
     {
 
     }
 
-    public Companion(int aVertices, double aRadius, float aHealth, float aDamge, bool aFriendly)
+    public Companion(int aVertices, double aRadius, float aHealth, float aDamge, bool aIsAlive)
     {
         Vertices = aVertices;
         Radius = aRadius;
         health = aHealth;
         damage = aDamge;
-        friendly = aFriendly;
+        isAlive = aIsAlive;
     }
 
     public float Health
@@ -36,9 +36,9 @@ public class Companion : Coin
         get { return damage; }
     }
 
-    public bool Friendly
+    public bool IsAlive
     {
-        set { friendly = value; }
-        get { return friendly; }
+        set { isAlive = value; }
+        get { return isAlive; }
     }
 }

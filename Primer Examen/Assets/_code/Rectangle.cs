@@ -27,9 +27,9 @@ public class Rectangle
     {
         set
         {
-            if (value != 3)
+            if (value != 4)
             {
-                vertices = 3;
+                vertices = 4;
             }
             else vertices = value;
         }

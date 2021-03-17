@@ -80,25 +80,25 @@ public class Dice{
 
     public string Material
     {
-        set { value = material; }
+        set { material = value; }
         get { return material; }
     }
 
     public float SizeX
     {
-        set { value = sizeX; }
+        set { sizeX = value; }
         get { return sizeX; }
     }
 
     public bool Available
     {
-        set { value = available; }
+        set { available = value; }
         get { return available; }
     }
 
     public float Radius
     {
-        set { value = radius; }
+        set { radius = value; }
         get { return radius; }
     }
 

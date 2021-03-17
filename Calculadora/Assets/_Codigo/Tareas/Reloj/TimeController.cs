@@ -33,6 +33,7 @@ public class TimeController : MonoBehaviour
         if (hoursInputField == null) hoursInputField = GetComponent<InputField>();
         if (minutesInputField == null) minutesInputField = GetComponent<InputField>();
         if (secondsInputField == null) secondsInputField = GetComponent<InputField>();
+        if (timeText == null) timeText = GetComponent<Text>();
         isEditing = true;
         isRealTime = false;
         isActive = false;
@@ -64,7 +65,6 @@ public class TimeController : MonoBehaviour
             displayCanvas.interactable = true;
             displayCanvas.blocksRaycasts = true;
         }
-
     }
 
     void startTimer()

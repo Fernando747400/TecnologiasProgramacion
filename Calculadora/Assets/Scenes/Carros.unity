@@ -727,7 +727,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Velocidad m\xE1xima"
+  m_Text: "Velocidad m\xE1xima (KM/H)"
 --- !u!222 &242818030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3411,7 +3411,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gasolina
+  m_Text: Gasolina (L)
 --- !u!222 &1196064033
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3723,7 +3723,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Velocidades
+  m_Text: '# Velocidades'
 --- !u!222 &1331008742
 CanvasRenderer:
   m_ObjectHideFlags: 0

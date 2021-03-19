@@ -18,7 +18,7 @@ public class TimeController : MonoBehaviour
     private int someSeconds;
     private int i;
     private Time customTime;
-    [Header ("Input Fields")]
+    [Header("Input Fields")]
     [SerializeField] InputField hoursInputField;
     [SerializeField] InputField minutesInputField;
     [SerializeField] InputField secondsInputField;
@@ -36,9 +36,10 @@ public class TimeController : MonoBehaviour
         if (timeText == null) timeText = GetComponent<Text>();
         isEditing = true;
         isRealTime = false;
-        isActive = false;
+        isActive = false;        
     }
 
+    
 
     void Update()
     {

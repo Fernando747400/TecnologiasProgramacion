@@ -58,10 +58,7 @@ public class RaceController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        dropDownItemChanged();
-    }
+  
 
 
     void race(Dropdown firstDropDown, Dropdown secondDropDown)
@@ -72,17 +69,17 @@ public class RaceController : MonoBehaviour
         double speedSecond = carList[secondIndex].TopSpeed * 0.277778;
         double timeFirst = speedFirst / raceLength;
         double timeSecond = speedSecond / raceLength;
-        textTimeFirstCar.text = timeFirst.ToString();
-        textTimeSecondCar.text = timeSecond.ToString();
+        textTimeFirstCar.text = timeFirst.ToString() + " segundos";
+        textTimeSecondCar.text = timeSecond.ToString() + " segundos";
 
         if(timeFirst > timeSecond)
         {
             winnerText.text = "Ganó el: " + carList[firstIndex].Name + " en: " + timeFirst + " segundos";
             runnerUpText.text = "Quedó en segundo lugar el: " + carList[secondIndex].Name + " en: " + timeSecond + " segundos";
-            timeDifference.text = "Diferencia de: " + (timeFirst - timeSecond);
+            timeDifference.text = "Diferencia de: " + (timeFirst - timeSecond) + " segundos";
         } else if (timeFirst < timeSecond)
         {
-            winnerText.text = "Ganó el: " + carList[secondIndex].Name + " en: " + timeFirst;
+            winnerText.text = "Ganó el: " + carList[secondIndex].Name + " en: " + timeFirst + " segundos";
             runnerUpText.text = "Quedó en segundo lugar el: " + carList[firstIndex].Name + " en: " + timeSecond + " segundos";
             timeDifference.text = "Diferencia de: " + (timeSecond - timeFirst) + " segundos";
         } else if (timeFirst == timeSecond)
@@ -149,6 +146,8 @@ public class RaceController : MonoBehaviour
 
         firstCarDropDown.onValueChanged.AddListener(delegate { dropDownItemChanged(); });
         secondCarDropDown.onValueChanged.AddListener(delegate { dropDownItemChanged(); });
+        populateText(firstCarDropDown, secondCarDropDown);
+        populateText(firstCarDropDown, secondCarDropDown);
     }
     void dropDownItemChanged()
     {

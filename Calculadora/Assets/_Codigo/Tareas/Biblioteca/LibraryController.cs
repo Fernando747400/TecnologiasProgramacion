@@ -37,11 +37,11 @@ public class LibraryController : MonoBehaviour
     private static int capacity = 10;
     private BookDetailed temporal;
 
-    private List<BookDetailed> Libros = new List<BookDetailed>(capacity);
+    private List<BookDetailed> bookList = new List<BookDetailed>(capacity);
     BookDetailed TestBook = new BookDetailed("La pirámide roja", "Rick Ryordan", 471, "Fantasía", 2016, "Excelente", "Amarillo");
     void Start()
     {
-        Libros.Add(TestBook);
+        bookList.Add(TestBook);
         prepare();       
     }
 
@@ -54,10 +54,10 @@ public class LibraryController : MonoBehaviour
     public void addNewBook()
     {
         readInput();
-        if (Libros.Count != capacity)
+        if (bookList.Count != capacity)
         {
             temporal = new BookDetailed(title,author,pages,genre,year,condition,color);
-            Libros.Add(temporal);
+            bookList.Add(temporal);
             poblateDropDown();
             statusText.text = "Libro añadido correctamente";
         } 
@@ -66,9 +66,9 @@ public class LibraryController : MonoBehaviour
     public void deleteSelected(Dropdown dropdown)
     {
         int index = dropdown.value;
-        if (Libros.Count > 1)
+        if (bookList.Count > 1)
         {
-            Libros.RemoveAt(index);
+            bookList.RemoveAt(index);
             poblateDropDown();
             statusText.text = "Libro eliminado correctamente";
         }
@@ -91,7 +91,7 @@ public class LibraryController : MonoBehaviour
     public void poblateTexts(Dropdown dropdown)
     {
         int index = dropdown.value;
-        BookDetailed selected = Libros[index];
+        BookDetailed selected = bookList[index];
         titleText.text = selected.Title;
         authorText.text = selected.Author;
         pagesText.text = selected.Pages.ToString();
@@ -104,9 +104,9 @@ public class LibraryController : MonoBehaviour
 
     void firstPoblateDropDown()
     {
-        if (Libros.Count != 0)
+        if (bookList.Count != 0)
         {
-            foreach (var Libro in Libros)
+            foreach (var Libro in bookList)
             {
                 dropdownSelection.options.Add(new Dropdown.OptionData() { text = Libro.Title.ToString() });
             }
@@ -117,10 +117,10 @@ public class LibraryController : MonoBehaviour
 
     void poblateDropDown()
     {
-        if (Libros.Count != 0)
+        if (bookList.Count != 0)
         {
             dropdownSelection.ClearOptions();
-            foreach (var Libro in Libros)
+            foreach (var Libro in bookList)
             {
                 dropdownSelection.options.Add(new Dropdown.OptionData() { text = Libro.Title.ToString() });
             }
@@ -131,7 +131,7 @@ public class LibraryController : MonoBehaviour
 
     void checkCapacity()
     {
-        if (Libros.Count == capacity)
+        if (bookList.Count == capacity)
         {
             addBookButton.gameObject.SetActive(false);
             deleteBookButton.gameObject.SetActive(true);

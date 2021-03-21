@@ -4,8 +4,8 @@ using UnityEngine;
 
 public static class Calculation 
 {
-     static int numeroUno = 5;
-     static int numeroDos = 2;
+    // static int numeroUno = 5;
+    // static int numeroDos = 2;
 
 
     public static int suma(int numeroUno, int numeroDos)

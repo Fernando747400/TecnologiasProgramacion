@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ejercicio1 : MonoBehaviour
 {
-    public string name;
+    // public string name;
 
     public void FuncionUno (string name)
     {

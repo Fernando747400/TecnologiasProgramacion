@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ejercicio1B : MonoBehaviour
 {
     [SerializeField]
-    private static string name;
+   // private static string name;
     private Ejercicio1 scriptA;
 
     public void Start()

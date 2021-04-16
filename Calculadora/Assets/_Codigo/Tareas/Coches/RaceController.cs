@@ -50,7 +50,7 @@ public class RaceController : MonoBehaviour
     [SerializeField] Text runnerUpText;
     [SerializeField] Text timeDifference;
 
-    void Start()
+     void Start()
     {
         initialize();
         prepare();
@@ -182,5 +182,39 @@ public class RaceController : MonoBehaviour
         if (secondGearboxText == null) secondGearboxText.GetComponent<Text>();
     }
 
-   
+    public VehicleDetailed raceTest(int firstCar, int secondCar)
+    {
+        carList.Add(Enzo);
+        carList.Add(Veyron);
+        carList.Add(Aventador);
+        carList.Add(GTR);
+        carList.Add(Quattroporte);
+        carList.Add(Agera);
+        carList.Add(Urus);
+        carList.Add(Carrera);
+        carList.Add(Chiron);
+        carList.Add(GT);
+
+        int firstIndex = firstCar;
+        int secondIndex = secondCar;
+        double speedFirst = carList[firstIndex].TopSpeed * 0.277778;
+        double speedSecond = carList[secondIndex].TopSpeed * 0.277778;
+        double timeFirst = speedFirst / raceLength;
+        double timeSecond = speedSecond / raceLength;
+
+        if (timeFirst > timeSecond)
+        {
+            return carList[firstIndex];
+        }
+        else if (timeFirst < timeSecond)
+        {
+            return carList[secondIndex];
+        }
+        else if (timeFirst == timeSecond)
+        {
+            return null;
+        }
+        return null;
+    }
+
 }

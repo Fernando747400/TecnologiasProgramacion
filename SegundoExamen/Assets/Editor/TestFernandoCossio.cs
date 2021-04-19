@@ -29,6 +29,28 @@ public class TestFernandoCossio
 
     [UnityTest]
 
+    public IEnumerator heroAmbushTest()
+    {
+        //Arrange
+        var gameObject = new GameObject();
+        var myBattle = gameObject.AddComponent<BattleController>();
+        var level = 25;
+        Enemy myEnemy = new Enemy();
+        Hero myHero = new Hero();
+
+        //Act
+        myEnemy.createFoolEnemy(level);
+        myHero.createTankHero(level);
+        myEnemy.Speed = 1;
+        myHero.Speed = 2;
+        myBattle.EnemyAmbush(myEnemy, myHero);
+        yield return null;
+        //Assert
+        Assert.That(myEnemy.LifePoints, Is.InRange(-1150, 100));
+    }
+
+    [UnityTest]
+
     public IEnumerator magicAttackTest()
     {
         //Arrange
@@ -47,6 +69,28 @@ public class TestFernandoCossio
         yield return null;
         //Assert
         Assert.That(myHero.LifePoints, Is.InRange(-25, 150));
+    }
+
+    [UnityTest]
+
+    public IEnumerator heroMagicAttackTest()
+    {
+        //Arrange
+        var gameObject = new GameObject();
+        var myBattle = gameObject.AddComponent<BattleController>();
+        var level = 25;
+        Enemy myEnemy = new Enemy();
+        Hero myHero = new Hero();
+
+        //Act
+        myEnemy.createFoolEnemy(level);
+        myHero.createTankHero(level);
+        myEnemy.Speed = 1;
+        myHero.Speed = 2;
+        myBattle.MagicAttack(myEnemy, myHero);
+        yield return null;
+        //Assert
+        Assert.That(myEnemy.LifePoints, Is.InRange(-25, 150));
     }
 
     [UnityTest]
@@ -87,10 +131,36 @@ public class TestFernandoCossio
         myHeroOne.createTankHero(level);
         myHeroTwo.createTankHero(level);
         myHeroThree.createTankHero(level);
+        myEnemy.Speed = 10;
         myBattle.UnitedAttack(myEnemy, myHeroOne, myHeroTwo,myHeroThree);
         yield return null;
         //Assert
         Assert.That(myEnemy.LifePoints, Is.InRange(0, 25));
+    }
+
+    [UnityTest]
+
+    public IEnumerator heroUnitedAttackTest()
+    {
+        //Arrange
+        var gameObject = new GameObject();
+        var myBattle = gameObject.AddComponent<BattleController>();
+        var level = 25;
+        Enemy myEnemy = new Enemy();
+        Hero myHeroOne = new Hero();
+        Hero myHeroTwo = new Hero();
+        Hero myHeroThree = new Hero();
+
+        //Act
+        myEnemy.createFoolEnemy(level);
+        myHeroOne.createTankHero(level);
+        myHeroTwo.createTankHero(level);
+        myHeroThree.createTankHero(level);
+        myEnemy.Speed = 0;
+        myBattle.UnitedAttack(myEnemy, myHeroOne, myHeroTwo, myHeroThree);
+        yield return null;
+        //Assert
+        Assert.That(myEnemy.LifePoints, Is.InRange(-50, 50));
     }
 
     [UnityTest]
